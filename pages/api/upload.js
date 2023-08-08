@@ -11,7 +11,6 @@ export default async function handle(req, res){
       resolve({fields,files});
     });
   });
-  console.log('length:', files.file.length);
   const client= new S3Client({
     region:'ap-south-1',
     credentials:{
@@ -24,8 +23,6 @@ export default async function handle(req, res){
     const bucketName='aman-next-ecommerce'
     const ext = file.originalFilename.split('.').pop()
     const newFilename= Date.now() + '.' + ext
-    console.log(newFilename)
-    console.log({ext, file})
     await client.send(new PutObjectCommand({
         Bucket:bucketName,
         Key:newFilename,
