@@ -35,6 +35,8 @@ export default async function handle(req, res){
         if(req.query?.id){
             await Product.deleteOne({_id:req.query.id})
             res.json(true)
+        }else{
+            return res.status(400).json({ error: 'Product ID is required' });
         }
     }
 }
