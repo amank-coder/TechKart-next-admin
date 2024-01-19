@@ -14,9 +14,7 @@ export default async function handle(req, res){
         }
         res.json(await Product.find())
     }
-    else{
-        res.json(await Product.find())
-    }
+
     
     if(method==='POST')
     {
