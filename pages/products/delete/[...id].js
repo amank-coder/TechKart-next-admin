@@ -19,8 +19,12 @@ export default function DeleteProductPage(){
     }
 
     async function deleteProduct(){
-        await axios.delete('/api/products?id='+id)
-        goBack()
+        try {
+            await axios.delete('/api/products?id=' + id);
+            goBack();
+          } catch (error) {
+            console.error('Error deleting product:', error);
+          }
     }
     return(
         <Layout>
