@@ -22,7 +22,11 @@ export default function ProductForm({
         e.preventDefault()
         const data= {title, description, price, images, category}
         if(_id){
-            await axios.put('/api/products', {...data, _id})
+            await axios.put('/api/products', { ...data, _id }, {
+                headers: {
+                  'Content-Type': 'application/json', // Adjust the content type as needed
+                },
+              });
         }else{
             
             await axios.post('/api/products', data)
