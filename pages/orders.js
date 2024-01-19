@@ -23,7 +23,7 @@ export default function OredersPage(){
                 </thead>
                 <tbody>
                     {orders.length>0 && orders.map(order=>(
-                        <tr>
+                        <tr key={order.name}>
                             <td>{(new Date(order.createdAt)).toDateString()}</td>
                             <td>{order.name}  {order.email}<br />
                                 {order.city},{order.state}
