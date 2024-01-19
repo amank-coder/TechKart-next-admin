@@ -8,6 +8,9 @@ export default function Layout({children}) {
   if(!session){
     return(
       <div className='bg-blue-900 w-screen h-screen flex items-center'>
+          <div className="h-full w-full">
+            <img src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fi1.wp.com%2Fbillionaire365.com%2Fwp-content%2Fuploads%2F2019%2F02%2FEcommerce-Website.jpg%3Ffit%3D2048%252C1452%26ssl%3D1&f=1&nofb=1&ipt=0b13eb8b6ddc48850a885758ce7da7d0b3b24e568b4a8498a72879109bd13a3c&ipo=images" className="h-full"/>
+          </div>
           <div className="text-center w-full">
             <button onClick={()=>signIn('google')} className="bg-white p-2 px-4 rounded-lg">Login with Google</button>
           </div>
