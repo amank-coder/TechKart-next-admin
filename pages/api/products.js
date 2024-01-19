@@ -1,6 +1,7 @@
 import { Product } from "@/models/Product"
 import { mongooseConnect } from "@/lib/mongoose"
 import mongoose from "mongoose"
+import { ObjectId } from 'mongodb';
 
 export default async function handle(req, res){
     const {method} = req
@@ -33,7 +34,8 @@ export default async function handle(req, res){
 
     if(method==='DELETE'){
         if(req.query?.id){
-            await Product.deleteOne({_id:req.query.id})
+            const objectId = new ObjectId(req?.query?.id);
+            await Product.deleteOne({_id:objectId})
             res.json(true)
         }else{
             return res.status(400).json({ error: 'Product ID is required' });
